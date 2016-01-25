@@ -31,7 +31,16 @@ if (!q) {
   process.exit();
 }
 
-var client = new Client(config),
+// TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+// Remove hard-coded paths!
+// TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+console.log('loading STP data ...');
+var stpData = JSON.parse(fs.readFileSync('./stpdata.json', 'utf-8'));
+console.log('loading stop to trip data ...');
+var stopToTrip = JSON.parse(fs.readFileSync('./stopToTrip.json', 'utf-8'));
+// TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+
+var client = new Client(config, stpData, stopToTrip),
     count = 0;
 client.query(q, function (stream, source) {
   console.log('Querying ' + source._entrypoints.length + ' data source(s).');

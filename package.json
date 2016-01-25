@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "commander": "^2.8.1",
-    "csa": "^0.0.x",
+    "csa": "file:../csa.js",
     "jsonld": "^0.4.1",
     "moment": "~2.11.1",
     "path": "^0.12.7",
