@@ -39,8 +39,9 @@ var stpData = JSON.parse(fs.readFileSync('./stpdata.json', 'utf-8'));
 console.log('loading stop to trip data ...');
 var stopToTrip = JSON.parse(fs.readFileSync('./stopToTrip.json', 'utf-8'));
 // TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-
-var client = new Client(config, stpData, stopToTrip),
+// Read trip template from confg!
+// TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+var client = new Client(config, stpData, stopToTrip, 'http://localhost:8080/trips/{trip_id}{?date}'),
     count = 0;
 client.query(q, function (stream, source) {
   console.log('Querying ' + source._entrypoints.length + ' data source(s).');
