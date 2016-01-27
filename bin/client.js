@@ -37,11 +37,11 @@ if (!q) {
 console.log('loading STP data ...');
 var stpData = JSON.parse(fs.readFileSync('./stpdata.json', 'utf-8'));
 console.log('loading stop to trip data ...');
-var stopToTrip = JSON.parse(fs.readFileSync('./stopToTrip.json', 'utf-8'));
+var stopToRoute = JSON.parse(fs.readFileSync('./stopToRoute.json', 'utf-8'));
 // TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 // Read trip template from confg!
 // TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-var client = new Client(config, stpData, stopToTrip, 'http://localhost:8080/trips/{trip_id}{?date}'),
+var client = new Client(config, stpData, stopToRoute, 'http://localhost:8080/routes/{route_id}{?departureTime}'),
     count = 0;
 client.query(q, function (stream, source) {
   console.log('Querying ' + source._entrypoints.length + ' data source(s).');
